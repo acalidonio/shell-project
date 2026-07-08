@@ -50,7 +50,7 @@ public class BookController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable UUID id) {
-        bookService.deleteBook(id);
+        bookService.deleteBookSafe(id);
         return ResponseEntity.ok().build();
     }
 }

@@ -18,21 +18,40 @@ public class LectorService {
     }
 
     public Lector registerLector(LectorRequestDto dto) {
-        return null;
+        Lector lector = new Lector();
+        lector.setName(dto.getName());
+        lector.setDui(dto.getDui());
+        lector.setLastname(dto.getLastname());
+        lector.setEmail(dto.getEmail());
+
+        return lectorRepository.save(lector);
     }
 
     public Lector getLectorById(UUID id) {
-        return null;
+        return lectorRepository.findById(id).orElseThrow();
     }
 
     public List<Lector> getAllLectors() {
-        return null;
+        return lectorRepository.findAll();
     }
 
     public Lector updateLector(UUID id, LectorRequestDto dto) {
-        return null;
+        Lector lector = lectorRepository.findById(id).orElseThrow();
+        lector.setName(dto.getName());
+        lector.setDui(dto.getDui());
+        lector.setLastname(dto.getLastname());
+        lector.setEmail(dto.getEmail());
+
+        return lectorRepository.save(lector);
     }
 
     public void deleteLector(UUID id) {
+        lectorRepository.deleteById(id);
+    }
+
+    public Lector deleteLectorSafe(UUID id) {
+        Lector lector = lectorRepository.findById(id).orElseThrow();
+        lector.setActive(false);
+        return lectorRepository.save(lector);
     }
 }

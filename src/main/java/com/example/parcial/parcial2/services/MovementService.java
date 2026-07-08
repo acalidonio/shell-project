@@ -53,6 +53,23 @@ public class MovementService {
     }
 
     public Movement returnBook(MovementRequestDto dto) {
-        return null;
+        Book book = bookRepository.findByIsbn(dto.getIsbn()).orElseThrow();
+        Lector lector = lectorRepository.findByEmail(dto.getEmail()).orElseThrow();
+
+        Optional<Movement> lastMovement = movementRepository.findTopByLectorAndBookOrderByTimestampDesc(lector, book);
+        if (lastMovement.isEmpty() || lastMovement.get().getType() == MovementType.RETURN) {
+            throw new IllegalArgumentException("No puedes devolver un libro que no has prestado");
+        }
+
+        Movement movement = new Movement();
+        movement.setBook(book);
+        movement.setLector(lector);
+        movement.setType(MovementType.RETURN);
+        movement.setTimestamp(Instant.now());
+
+        book.setAvailableCount(book.getAvailableCount() + 1);
+        bookRepository.save(book);
+
+        return movementRepository.save(movement);
     }
 }

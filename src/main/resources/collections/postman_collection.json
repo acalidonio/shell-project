@@ -1,15 +1,12 @@
 {
   "info": {
+    "_postman_id": "b03c34f4-fb7d-4880-ba44-cdf6103a0cf8",
     "name": "Library API",
-    "_postman_id": "library-api-collection",
     "description": "Library management API collection",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55155249",
+    "_collection_link": "https://go.postman.co/collection/55155249-b03c34f4-fb7d-4880-ba44-cdf6103a0cf8?source=collection_link"
   },
-  "variable": [
-    { "key": "baseUrl", "value": "http://localhost:8080" },
-    { "key": "bookId", "value": "00000000-0000-0000-0000-000000000001" },
-    { "key": "lectorId", "value": "00000000-0000-0000-0000-000000000002" }
-  ],
   "item": [
     {
       "name": "Books",
@@ -18,99 +15,162 @@
           "name": "Create Book",
           "request": {
             "method": "POST",
-            "url": {
-              "raw": "{{baseUrl}}/books",
-              "host": ["{{baseUrl}}"],
-              "path": ["books"]
-            },
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"title\": \"Clean Code\",\n  \"author\": \"Robert C. Martin\",\n  \"genre\": \"novel\",\n  \"isbn\": \"978-0132350884\",\n  \"available\": true,\n  \"availableCount\": 5\n}",
-              "options": { "raw": { "language": "json" } }
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/books",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "books"
+              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Get All Books",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "{{baseUrl}}/books",
-              "host": ["{{baseUrl}}"],
-              "path": ["books"]
-            },
-            "header": []
-          }
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "books"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "Get All Books (filtered)",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "{{baseUrl}}/books?author=Robert C. Martin&genre=novel",
-              "host": ["{{baseUrl}}"],
-              "path": ["books"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "books"
+              ],
               "query": [
-                { "key": "author", "value": "Robert C. Martin" },
-                { "key": "genre", "value": "novel" }
+                {
+                  "key": "author",
+                  "value": "Robert C. Martin"
+                },
+                {
+                  "key": "genre",
+                  "value": "novel"
+                }
               ]
-            },
-            "header": []
-          }
+            }
+          },
+          "response": []
         },
         {
           "name": "Get Book by ID",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "{{baseUrl}}/books/{{bookId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["books", "{{bookId}}"]
-            },
-            "header": []
-          }
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "books",
+                "{{bookId}}"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "Get Genres Available",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "{{baseUrl}}/books/genres-available",
-              "host": ["{{baseUrl}}"],
-              "path": ["books", "genres-available"]
-            },
-            "header": []
-          }
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "books",
+                "genres-available"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "Update Book",
           "request": {
             "method": "PUT",
-            "url": {
-              "raw": "{{baseUrl}}/books/{{bookId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["books", "{{bookId}}"]
-            },
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"title\": \"Clean Code (Updated)\",\n  \"author\": \"Robert C. Martin\",\n  \"genre\": \"science\",\n  \"isbn\": \"978-0132350884\",\n  \"available\": true,\n  \"availableCount\": 3\n}",
-              "options": { "raw": { "language": "json" } }
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/books/{{bookId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "books",
+                "{{bookId}}"
+              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Delete Book",
           "request": {
             "method": "DELETE",
+            "header": [],
             "url": {
               "raw": "{{baseUrl}}/books/{{bookId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["books", "{{bookId}}"]
-            },
-            "header": []
-          }
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "books",
+                "{{bookId}}"
+              ]
+            }
+          },
+          "response": []
         }
       ]
     },
@@ -121,71 +181,118 @@
           "name": "Register Lector",
           "request": {
             "method": "POST",
-            "url": {
-              "raw": "{{baseUrl}}/lectors/register",
-              "host": ["{{baseUrl}}"],
-              "path": ["lectors", "register"]
-            },
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"John\",\n  \"lastname\": \"Doe\",\n  \"dui\": \"01234567-8\"\n}",
-              "options": { "raw": { "language": "json" } }
+              "raw": "{\n  \"name\": \"John\",\n  \"lastname\": \"Doe\",\n  \"dui\": \"01234567-8\",\n  \"email\": \"a@a.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/lectors/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "lectors",
+                "register"
+              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Get All Lectors",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "{{baseUrl}}/lectors",
-              "host": ["{{baseUrl}}"],
-              "path": ["lectors"]
-            },
-            "header": []
-          }
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "lectors"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "Get Lector by ID",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "{{baseUrl}}/lectors/{{lectorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["lectors", "{{lectorId}}"]
-            },
-            "header": []
-          }
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "lectors",
+                "{{lectorId}}"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "Update Lector",
           "request": {
             "method": "PUT",
-            "url": {
-              "raw": "{{baseUrl}}/lectors/{{lectorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["lectors", "{{lectorId}}"]
-            },
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"John\",\n  \"lastname\": \"Smith\",\n  \"dui\": \"01234567-8\"\n}",
-              "options": { "raw": { "language": "json" } }
+              "raw": "{\n  \"name\": \"John\",\n  \"lastname\": \"Smith\",\n  \"dui\": \"01234567-8\",\n  \"email\": \"aa@aa.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/lectors/{{lectorId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "lectors",
+                "{{lectorId}}"
+              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Delete Lector",
           "request": {
             "method": "DELETE",
+            "header": [],
             "url": {
               "raw": "{{baseUrl}}/lectors/{{lectorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["lectors", "{{lectorId}}"]
-            },
-            "header": []
-          }
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "lectors",
+                "{{lectorId}}"
+              ]
+            }
+          },
+          "response": []
         }
       ]
     },
@@ -196,37 +303,81 @@
           "name": "Borrow Book",
           "request": {
             "method": "POST",
-            "url": {
-              "raw": "{{baseUrl}}/movements/borrow",
-              "host": ["{{baseUrl}}"],
-              "path": ["movements", "borrow"]
-            },
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"isbn\": \"978-0132350884\",\n  \"email\": \"john.doe@library.com\"\n}",
-              "options": { "raw": { "language": "json" } }
+              "raw": "{\n  \"isbn\": \"978-0140449136\",\n  \"email\": \"a@a.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/movements/borrow",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "movements",
+                "borrow"
+              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Return Book",
           "request": {
             "method": "POST",
-            "url": {
-              "raw": "{{baseUrl}}/movements/return",
-              "host": ["{{baseUrl}}"],
-              "path": ["movements", "return"]
-            },
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"isbn\": \"978-0132350884\",\n  \"email\": \"john.doe@library.com\"\n}",
-              "options": { "raw": { "language": "json" } }
+              "raw": "{\n  \"isbn\": \"978-0140449136\",\n  \"email\": \"a@a.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/movements/return",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "movements",
+                "return"
+              ]
             }
-          }
+          },
+          "response": []
         }
       ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "bookId",
+      "value": "00000000-0000-0000-0000-000000000001"
+    },
+    {
+      "key": "lectorId",
+      "value": "00000000-0000-0000-0000-000000000002"
     }
   ]
 }
